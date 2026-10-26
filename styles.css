@@ -1,0 +1,304 @@
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('fonts/nunito-sans-var.woff2') format('woff2');
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --rojo-titulo: #DC0C23;   
+  --texto:       #212529;   
+  --campo-bg:    #E9ECEF;   
+  --campo-borde: #DEE2E6; 
+  --dolar-bg:    #F8F9FA;  
+  --borde:       #D2D2D2;   
+  --btn-bg:      #575756;   
+  --btn-hover:   #454544;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito Sans', Roboto, sans-serif;
+  font-size: 13px;                    
+  line-height: 24px;                  
+  background: #FFFFFF;
+  color: var(--texto);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================= TARJETA  ================= */
+
+.card {
+  width: 100%;
+  max-width: 450px;
+  background: #FFFFFF;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* ================= ENCABEZADO ================= */
+
+.card-header {
+  text-align: center;
+  padding: 42px 20px 20px;
+  border-bottom: 1px solid var(--borde);
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-img {
+  height: 70px;      
+  width: auto;
+ 
+}
+
+.title {
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 390px;             
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 700;
+  color: var(--rojo-titulo);
+}
+
+.subtitle {
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 700;
+  color: var(--btn-bg);
+}
+
+/* ================= CAMPOS ================= */
+
+.card-body {
+  padding: 16px 16px 24px;
+  border-bottom: 1px solid var(--borde);
+}
+
+.field-row {
+  display: flex;
+  align-items: flex-start;     
+  margin-bottom: 8px;           
+}
+
+.field-row:last-child {
+  margin-bottom: 0;
+}
+
+.field-label {
+  flex: 0 0 146px;              
+  padding-right: 22px;          
+  padding-top: 14px;            
+  font-size: 16px;             
+  line-height: 24px;
+  color: var(--texto);
+}
+
+/* ---------- Caja gris de los campos ---------- */
+
+.field-value {
+  flex: 1;
+  height: 38px;
+  background: var(--campo-bg);
+  border: 1px solid var(--campo-borde);
+  border-radius: 6px;
+  padding: 0 12px;
+  font-size: 16px;
+  color: var(--texto);
+  display: flex;
+  align-items: center;
+}
+
+
+
+.field-money {
+  position: relative;
+}
+
+.field-money .amount {
+  padding: 0 12px 0 46px;       
+}
+
+.field-money .currency {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 36px;
+  height: 38px;
+  background: var(--dolar-bg);
+  border: 1px solid var(--campo-borde);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--texto);
+  z-index: 1;
+}
+
+/* ================= PIE / BOTÓN ================= */
+
+.card-footer {
+  padding: 9px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-salir {
+  background: var(--btn-bg);
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: 700;
+  padding: 12px 47px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;   
+  display: inline-block;
+  transition: background 0.2s ease;
+}
+
+.btn-salir:hover {
+  background: var(--btn-hover);
+  color: #FFFFFF;
+}
+
+.btn-salir:active {
+  transform: translateY(1px);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 520px) {
+  .field-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .field-label {
+    flex: none;
+    padding-top: 0;
+    padding-right: 0;
+  }
+
+  .logo-img {
+    height: 55px;
+  }
+
+  .title {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+/* ================= RESPONSIVE CELULAR ================= */
+
+@media (max-width: 600px) {
+
+    .card-body {
+        padding: 20px;
+    }
+
+
+    .field-row {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+        margin-bottom: 15px;
+    }
+
+
+    .field-label {
+        flex: none;
+        width: 100%;
+        font-size: 13px;
+    }
+
+
+    .field-value {
+        width: 100%;
+        height: 38px;
+    }
+
+
+    /* Campos con moneda */
+    .field-value.field-money {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        height: 38px;
+        background: transparent;
+        border: none;
+    }
+
+
+    .field-money .currency {
+
+        position: static;
+
+        width: 38px;
+        height: 38px;
+
+        flex-shrink: 0;
+
+        background: #F8F9FA;
+
+        border: 1px solid #DEE2E6;
+
+        border-radius: 6px 0 0 6px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 14px;
+
+    }
+
+
+    .field-money .amount {
+
+        flex: 1;
+
+        height: 38px;
+
+        background: #E9ECEF;
+
+        border: 1px solid #DEE2E6;
+
+        border-left: none;
+
+        border-radius: 0 6px 6px 0;
+
+        padding: 0 14px;
+
+        display: flex;
+
+        align-items: center;
+
+        font-size: 14px;
+
+    }
+
+}
